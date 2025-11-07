@@ -13,9 +13,9 @@ public class ProductsController(IProductRepository repo) : ControllerBase
 {
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string? brand, string? type, string? sort)
+    public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string? brand, string? type, string? sort, string? search, int? page)
     {
-        return Ok(await repo.GetProductsAsync(brand, type, sort));
+        return Ok(await repo.GetProductsAsync(brand, type, sort, search, page));
     }
 
     [HttpGet("{id=int}")]
@@ -44,11 +44,19 @@ public class ProductsController(IProductRepository repo) : ControllerBase
     {
         return Ok(await repo.GetProductBrandsAsync());
     }
-    
+
     [HttpGet("types")]
     public async Task<ActionResult<IReadOnlyList<string>>> GetProductTypes()
     {
         return Ok(await repo.GetProductTypesAsync());
+    }
+    
+    [HttpGet("byPrice")]
+    public async Task<ActionResult<IReadOnlyList<string>>> GetProductsByPriceRange(
+    [FromQuery] decimal? minPrice,
+    [FromQuery] decimal? maxPrice)
+    {
+        return Ok(await repo.GetProductsByPriceRange(minPrice, maxPrice));
     }
 
     [HttpPut("{id=int}")]
