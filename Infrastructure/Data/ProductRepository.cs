@@ -1,42 +1,80 @@
+using System.Text;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data;
 
 public class ProductRepository : IProductRepository
 {
+    private readonly StoreContext context;
+
+    public ProductRepository(StoreContext context)
+    {
+        this.context = context;
+    }
+    
     public void AddProduct(Product product)
     {
-        throw new NotImplementedException();
+        context.Products.Add(product);
     }
 
     public void DeleteProduct(Product product)
     {
-        throw new NotImplementedException();
+        context.Products.Remove(product);
     }
 
-    public Task<Product> GetProductAsync(int id)
+    public async Task<Product?> GetProductAsync(int id)
     {
-        throw new NotImplementedException();
+        return await context.Products.FindAsync(id);
     }
 
-    public Task<IReadOnlyList<Product>> GetProductsAsync()
+    public async Task<IReadOnlyList<string>> GetProductBrandsAsync()
     {
-        throw new NotImplementedException();
+        return await context.Products.Select(x => x.Brand)
+        .Distinct()
+        .ToListAsync();
+    }
+
+    public async Task<IReadOnlyList<string>> GetProductTypesAsync()
+    {
+        return await context.Products.Select(x => x.Type)
+        .Distinct()
+        .ToListAsync();
+    }
+
+    public async Task<IReadOnlyList<Product>> GetProductsAsync(string? brand, string? type, string? sort)
+    {
+        var query = context.Products.AsQueryable();
+
+        if (!string.IsNullOrEmpty(brand))
+            query = query.Where(x => x.Brand == brand);
+        if (!string.IsNullOrEmpty(type))
+            query = query.Where(x => x.Type == type);
+
+        query = sort switch
+        {
+            "priceAsc" => query.OrderByDescending(x => x.Price),
+            "priceDesc" => query.OrderByDescending(x => x.Price),
+            _ => query.OrderBy(x => x.Name)
+
+        };
+
+        return await query.ToListAsync();
     }
 
     public bool ProductExist(int id)
     {
-        throw new NotImplementedException();
+        return context.Products.Any(x => x.Id == id);
     }
 
-    public Task<bool> SaveChangesAsyns()
+    public async Task<bool> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await context.SaveChangesAsync() > 0;
     }
 
     public void UpdateProduct(Product product)
     {
-        throw new NotImplementedException();
+        context.Entry(product).State = EntityState.Modified;
     }
 }
