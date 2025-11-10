@@ -1,3 +1,4 @@
+using API.Middleware;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,8 +18,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
+app.UseMiddleware<ExceptionMiddleWare>();
 app.MapControllers();
 
 //This will apply every pending migration and fills the database with data

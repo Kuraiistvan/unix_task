@@ -1,4 +1,5 @@
 using API.Controllers;
+using API.DTOs;
 using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,7 +40,7 @@ public class StatusController : BaseApiController
     }
     
     [HttpPost("validationerror")]
-    public IActionResult GetValidationError(Product product)
+    public IActionResult GetValidationError(ProductDto product)
     {
         return Ok();
     }
