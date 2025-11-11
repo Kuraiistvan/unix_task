@@ -12,7 +12,7 @@ public class ProductSpecification : Specification<Product>
     (!specParams.Brands.Any() || specParams.Brands.Contains(x.Brand)) &&
     (!specParams.Types.Any() || specParams.Types.Contains(x.Type)))
     {
-        ApplyPaging(specParams.PageSize * (specParams.CurrentPage - 1), specParams.PageSize);
+        ApplyPaging(specParams.PageSize * (specParams.PageIndex -1), specParams.PageSize);
 
         if (specParams.minPrice != null && specParams.maxPrice != null)
             AddPriceBetween(x => x.Price >= specParams.minPrice && x.Price <= specParams.maxPrice);

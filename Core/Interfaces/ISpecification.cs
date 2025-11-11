@@ -13,10 +13,16 @@ public interface ISpecification<T>
     Expression<Func<T, bool>>? PriceBetween { get; }
 
     IQueryable<T> ApplyCriteria(IQueryable<T> query);
+    bool IsDistinct { get; }
 
     int Take { get; }
 
     int Skip { get; }
 
     bool IsPagingEnabled { get; }
+}
+
+public interface ISpecification<T, TResult> : ISpecification<T>
+{
+    Expression<Func<T, TResult>> Select { get; }
 }

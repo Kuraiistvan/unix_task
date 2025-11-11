@@ -18,7 +18,7 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseApiContr
     {
         var spec = new ProductSpecification(productParams);
 
-        return await CreatePageResult(repo, spec, productParams.CurrentPage, productParams.PageSize);
+        return await CreatePageResult(repo, spec, productParams.PageIndex, productParams.PageSize);
     }
 
     [HttpGet("{id=int}")]
@@ -53,6 +53,22 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseApiContr
             return NoContent();
 
         return BadRequest("Couldnt update product");
+    }
+
+    [HttpGet("brands")]
+    public async Task<ActionResult<IReadOnlyList<string>>> GetBrands()
+    {
+        var spec = new BrandListSpecifitcaion();
+
+        return Ok(await repo.GetAllBySpecAsync(spec));
+    }
+    
+    [HttpGet("types")]
+    public async Task<ActionResult<IReadOnlyList<string>>> GetTypes()
+    {
+        var spec = new TypeListSpecifitcaion();
+
+        return Ok(await repo.GetAllBySpecAsync(spec));
     }
 
     private bool ProductExist(int id)

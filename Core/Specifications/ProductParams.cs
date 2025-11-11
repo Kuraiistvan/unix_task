@@ -4,9 +4,9 @@ public class ProductParams
 {
     private const int MaxPages = 50;
 
-    public int CurrentPage { get; set; } = 1;
+    public int PageIndex { get; set; } = 1;
 
-    private int _pagesize = 6;
+    private int _pagesize = 5;
     public int PageSize
     {
         get => _pagesize;

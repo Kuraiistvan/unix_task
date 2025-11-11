@@ -1,9 +1,11 @@
 <header class="border-b-2 p-3 w-full">
     <div class="flex align-middle items-center justify-between mx-auto">
-        <img src="Images/logo.png" alt="app logo" class="max-h-16">
-        <nav class="flex gap-3 my-2 uppercase text-xl">
-            <a>Home</a>
-            <a>Shop</a>
+        <img routerLink="/" src="Images/logo.png" alt="app logo" class="max-h-16">
+        <nav class="absolute left-1/2 transform -translate-x-1/2 hidden md:flex gap-6 uppercase text-xl font-medium">
+            <a routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            >Home</a>
+            <a routerLink="/shop" routerLinkActive="active">Shop</a>
         </nav>
 
         <div class="flex gap-3 align-middle">

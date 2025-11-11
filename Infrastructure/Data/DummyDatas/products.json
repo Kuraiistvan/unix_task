@@ -3,7 +3,7 @@
   "Name": "TurboMax Performance Exhaust",
   "Description": "High-flow stainless steel exhaust system designed for maximum horsepower and an aggressive sound. Corrosion-resistant and precision welded for durability.",
   "Price": 450,
-  "PictureUrl": "/images/products/exhaust-turbomax.png",
+  "PictureUrl": "Images/products/exhaust-turbomax.png",
   "Type": "Exhaust Systems",
   "Brand": "TurboMax",
   "QuantityInStock": 25
@@ -12,7 +12,7 @@
   "Name": "EcoDrive Air Filter Pro",
   "Description": "Reusable, high-efficiency air filter providing improved airflow and fuel economy. Easy installation and washable design.",
   "Price": 60,
-  "PictureUrl": "/images/products/airfilter-eco.png",
+  "PictureUrl": "Images/products/airfilter-eco.png",
   "Type": "Filters",
   "Brand": "EcoDrive",
   "QuantityInStock": 140
@@ -21,7 +21,7 @@
   "Name": "SpeedLine Brake Pads X-Series",
   "Description": "Ceramic brake pads engineered for high-performance vehicles. Delivers excellent stopping power and reduced brake dust.",
   "Price": 95,
-  "PictureUrl": "/images/products/brakepads-speedline.png",
+  "PictureUrl": "Images/products/brakepads-speedline.png",
   "Type": "Brakes",
   "Brand": "SpeedLine",
   "QuantityInStock": 78
@@ -30,7 +30,7 @@
   "Name": "AutoCore Performance Battery",
   "Description": "Long-lasting 12V automotive battery with deep-cycle technology for reliable starts and stable voltage under heavy load.",
   "Price": 180,
-  "PictureUrl": "/images/products/battery-autocore.png",
+  "PictureUrl": "Images/products/battery-autocore.png",
   "Type": "Batteries",
   "Brand": "AutoCore",
   "QuantityInStock": 42
@@ -39,7 +39,7 @@
   "Name": "HyperTune Spark Plug Set",
   "Description": "Platinum-tipped spark plugs designed for enhanced ignition efficiency, smoother idling, and increased engine longevity.",
   "Price": 40,
-  "PictureUrl": "/images/products/sparkplugs-hypertune.png",
+  "PictureUrl": "Images/products/sparkplugs-hypertune.png",
   "Type": "Ignition",
   "Brand": "HyperTune",
   "QuantityInStock": 110
@@ -48,7 +48,7 @@
   "Name": "DynoFlow Radiator Pro 2000",
   "Description": "Aluminum radiator with improved heat dissipation for high-performance and off-road vehicles. Leak-tested and corrosion-proof.",
   "Price": 220,
-  "PictureUrl": "/images/products/radiator-dynoflow.png",
+  "PictureUrl": "Images/products/radiator-dynoflow.png",
   "Type": "Cooling",
   "Brand": "DynoFlow",
   "QuantityInStock": 19
@@ -57,7 +57,7 @@
   "Name": "RoadTech All-Weather Wiper Blades",
   "Description": "Durable wiper blades with a flexible frame for maximum windshield contact. Perfect for rain, snow, and dust conditions.",
   "Price": 25,
-  "PictureUrl": "/images/products/wiper-roadtech.png",
+  "PictureUrl": "Images/products/wiper-roadtech.png",
   "Type": "Accessories",
   "Brand": "RoadTech",
   "QuantityInStock": 85
