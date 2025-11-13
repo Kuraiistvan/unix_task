@@ -1,0 +1,46 @@
+<div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm mb-4">
+  <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
+
+    <a routerLink="/shop/{{item().productId}}" class="shrink-0 order-1">
+      <img
+        src="{{item().pictureUrl}}"
+        alt="product image"
+        class="h-24 w-24 object-cover rounded-md"
+      />
+    </a>
+
+    <div class="flex-1 order-2 text-center sm:text-left space-y-2">
+      <a
+        routerLink="/shop/{{item().productId}}"
+        class="block font-semibold text-lg text-gray-800 hover:text-blue-600"
+      >
+        {{ item().productName }}
+      </a>
+
+      <div class="flex justify-center sm:justify-start">
+        <button mat-button class="flex items-center gap-1 text-red-700" (click)="removeItemFromCart()">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <div class="order-3 flex flex-col sm:flex-row items-center sm:items-center gap-4">
+      <div class="flex items-center gap-3">
+        <button mat-icon-button (click)="decrementQuantity()">
+          <mat-icon class="text-red-600">remove</mat-icon>
+        </button>
+
+        <div class="font-semibold text-xl">{{ item().quantity }}</div>
+
+        <button mat-icon-button (click)="incrementQuantity()">
+          <mat-icon class="text-green-600">add</mat-icon>
+        </button>
+      </div>
+
+      <p class="font-bold text-xl text-gray-800">
+        {{ item().price | currency: 'HUF':'symbol':'1.0-0' }}
+      </p>
+    </div>
+  </div>
+</div>
